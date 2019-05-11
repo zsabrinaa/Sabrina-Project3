@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import {Image} from "../components/Img";
+import {StartBtn} from "../components/Startbtn";
 
 class Index extends Component {
   state = {
@@ -56,6 +57,11 @@ class Index extends Component {
           </div>    
         </div>
         {/* end top img */}
+        <div className="row">
+        <div className="col m12">
+        <StartBtn/>
+        </div>
+        </div>
         <div className="row">
         <div className="col m12">
             Shop by type

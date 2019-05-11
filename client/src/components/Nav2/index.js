@@ -4,12 +4,11 @@ import "./style.css";
 function Nav2(props){
     return(
     <nav>
-    <div className="nav-wrapper">
-      <a href="#" className="brand-logo right">Logo</a>
+    <div className="nav-wrapper nav2">
       <ul id="nav-mobile" className="left hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
+        <li><a href="sass.html">T-Shirts</a></li>
+        <li><a href="badges.html">Dresses</a></li>
+        <li><a href="collapsible.html">Swimwear</a></li>
       </ul>
     </div>
   </nav>

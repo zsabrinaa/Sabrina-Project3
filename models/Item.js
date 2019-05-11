@@ -6,7 +6,7 @@ const  itemSchema = new Schema({
   category: { type: String, required: true },
   src: String,
   quantity: { type: Number },
-  price: { type: Number },
+  size: Map,
   date: { type: Date, default: Date.now }
 });
 
