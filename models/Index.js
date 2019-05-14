@@ -1,2 +1,4 @@
-export const item = require("./item");
-export const user = require('./user');
+module.exports = {
+    item: require("./item"),
+    user: require('./user')
+  };
