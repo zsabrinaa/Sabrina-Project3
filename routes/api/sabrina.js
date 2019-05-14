@@ -13,9 +13,8 @@ const itemsController = require("../../controllers/itemsController");
   .post(itemsController.create)
   .delete(itemsController.remove);
 router
-  .route("/:id")
+  .route("/shop/:id")
   .get(itemsController.findById)
-  .put(itemsController.update)
-  .delete(itemsController.remove);
+ 
 
 module.exports = router;

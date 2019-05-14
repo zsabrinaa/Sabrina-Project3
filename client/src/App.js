@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Switch} from 'react-router'
 import Index from "./pages/Index";
 import SignUpPage from "./pages/SignUpPage";
+import Detail from "./pages/Details";
 import All from "./pages/All";
 import LogInPage from "./pages/LogInPage";
 import Navbar from "./components/Nav1";
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/signup" component={SignUpPage} />
           <Route exact path="/login" component={LogInPage} />
           <Route exact path="/shop" component={All} />
+          <Route exact path="/shop/:id" component={Detail} />
         </Switch> 
         </main>
         <Footer/>

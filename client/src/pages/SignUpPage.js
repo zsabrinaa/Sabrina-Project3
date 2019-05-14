@@ -4,16 +4,10 @@ import API from "../utils/API";
 import M from 'materialize-css';
 
 class SignUpPage extends Component {
-    constructor(props){
-        super(props)
-     this.handleFormSubmit =  this.handleFormSubmit.bind(this);
-    }
     state = {
         email: "",
         password: "",
         pswRepeat: "",
-        error: ''
-
     };
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -21,19 +15,14 @@ class SignUpPage extends Component {
             [name]: value
         });
     };
-    handleFormSubmit (event) {
-        event.preventDefault(); debugger
-         if (this.state.password.length < 8 ){
-            this.setState({error: 'Sorry cannot sign up'}) 
-         } else{
+    handleFormSubmit = event => {
+        event.preventDefault();
+        this.state.password.length < 8 ? M.toast({ html: 'Sorry cannot sign up' }) :
             API.createAccount(this.state.email, this.state.password)
-         }
-        
-
     };
-    componentDidMount(){
-        M.FormSelect.init(document.querySelectorAll('select'));
-    };
+    componentDidMount() {
+        M.FormSelect.init(document.getElementsByClassName('select'));
+    }
 
     render() {
         return (
@@ -41,10 +30,8 @@ class SignUpPage extends Component {
                 <form action="action_page.php" style={{ border: "1px solid #ccc" }}>
                     <div className="container">
                         <h1>Sign Up</h1>
-                        {this.state.error && M.toast({ html:this.state.error}) }
                         <p>Please fill in this form to create an account.</p>
-                        <hr/>
-
+                        <hr />
                         <label htmlFor="email"><b>Email</b></label>
                         <input
                             onChange={this.handleInputChange}
