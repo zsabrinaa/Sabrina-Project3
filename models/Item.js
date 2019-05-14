@@ -10,6 +10,6 @@ const  itemSchema = new Schema({
   date: { type: Date, default: Date.now }
 });
 
-const item = mongoose.model("item",  itemSchema);
+const Item = mongoose.model("Item",  itemSchema);
 
-module.exports = item;
+module.exports = Item;
