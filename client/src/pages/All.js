@@ -31,12 +31,14 @@ class All extends Component {
                     />
                      </Link>
                      <div> {item.name}</div>
+                     <div >
                     {Object.keys(item.size).map((size, i) => {
                       if (i !== 0 && i !== 5) return
                       const price = item.size[size]
                       return <span>${price}{(i === 0)?'/':''}</span>
                       // {/* {size} = */}   
                     })}
+                    </div>
                 </div>
               )
             })
@@ -48,5 +50,4 @@ class All extends Component {
     )
   }
 }
-
 export default All;

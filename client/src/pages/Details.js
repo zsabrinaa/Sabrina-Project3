@@ -22,8 +22,7 @@ class Detail extends Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col s6">
-                        
+                    <div className="col s6">  
                         <Image
                             src={this.state.item.src}
                         />
