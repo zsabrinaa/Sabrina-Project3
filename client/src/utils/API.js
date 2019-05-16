@@ -4,9 +4,12 @@ export default {
   // search: function(query) {
   //   return axios.get(BASEURL + query + APIKEY);
   // },
-  // Gets all books
+  
   getItems: function() {
     return axios.get("/api/items");
+  },
+  getCartItems: function() {
+    return axios.get("/api/cart");
   },
   // Gets the book with the given id
   getItem: function(id) {
@@ -22,14 +25,15 @@ export default {
   deleteBook: function(id) {
     return axios.delete("/api/books/" + id);
   },
-  
-  
-  saveItem: function(a,b,c,d) {
+ 
+  saveItem: function(a,b,c,d,e) {
+    console.log(a,b,c,d,e)
     return axios.post("/api/cart",{
-      _id: a,
-      author: b.toString(),
-      src: c,
-      synopsis: d
+      src: a,
+      quantity: b,
+      size: c,
+      price: d,
+      id: e
     });
   }
 };

@@ -3,6 +3,16 @@ const db = require("../models");
 module.exports = {
   findAll: function(req, res) {
     db.Item
+   
+      .find({})
+      .then(dbModel => {
+        console.log(dbModel)
+        res.json(dbModel)})
+      .catch(err => res.status(422).json(err));
+  },
+  findAll2: function(req, res) {
+    db.Cart
+   
       .find({})
       .then(dbModel => {
         console.log(dbModel)
@@ -17,7 +27,7 @@ module.exports = {
   },
   create: function(req, res) {
     console.log(req.body)
-    db.User
+    db.Cart
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err =>{

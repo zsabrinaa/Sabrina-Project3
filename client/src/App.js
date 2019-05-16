@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Switch} from 'react-router'
 import Index from "./pages/Index";
 import SignUpPage from "./pages/SignUpPage";
+import Cart from "./pages/Cart";
 import Detail from "./pages/Details";
 import All from "./pages/All";
 import LogInPage from "./pages/LogInPage";
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/login" component={LogInPage} />
           <Route exact path="/shop" component={All} />
           <Route exact path="/shop/:id" component={Detail} />
+          <Route exact path="/cart" component={Cart} />
         </Switch> 
         </main>
         <Footer/>

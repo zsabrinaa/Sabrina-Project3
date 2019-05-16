@@ -15,6 +15,11 @@ const itemsController = require("../../controllers/itemsController");
 router
   .route("/shop/:id")
   .get(itemsController.findById)
- 
+  router
+  .route("/cart")
+  .post(itemsController.create)
+  .get(itemsController.findAll2)
+  
+  .delete(itemsController.remove);
 
 module.exports = router;

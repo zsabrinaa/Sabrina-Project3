@@ -36,7 +36,6 @@ class All extends Component {
                       if (i !== 0 && i !== 5) return
                       const price = item.size[size]
                       return <span>${price}{(i === 0)?'/':''}</span>
-                      // {/* {size} = */}   
                     })}
                     </div>
                 </div>
