@@ -24,7 +24,7 @@ export function LogIn(props) {
                 </div>
 
                 <div className="container" style={{ backgroundColor: "#f1f1f1" }}>
-                    <button type="button" className="cancelbtn">Cancel</button>
+                   <a href="/"> <button type="button" className="cancelbtn">Cancel</button></a>
                 </div>
             </form>
         

@@ -6,58 +6,72 @@ import { Image } from "../components/Img";
 class Cart extends Component {
     state = {
         items: []
-      };
+    };
 
 
-componentDidMount() {
-    this.loadCart();
-  }
-  loadCart = () => {
-    API.getCartItems()
-      .then(res => {
-        this.setState({ items: res.data})
-      })
-      .catch(err => console.log(err));
-  };
+    componentDidMount() {
+        this.loadCart();
+    }
+    loadCart = () => {
+        this.setState({ items: JSON.parse(localStorage.getItem("cart")) })
+        // API.getCartItems()
+        //     .then(res => {
+        // this.setState({ items: JSON.parse(localStorage.getItem("cart")) })
+        // })
+        // .catch(err => console.log(err));
+    };
 
-  render(){
-      return(
-        <div className="container">
-        <div className="row">
-          {this.state.items.length ? (
-            this.state.items.map(item => {
-              return (
-                <div className="col s3">
-                  <Link to={"/shop/" + item._id}>  
-                    <Image key={item._id}
-                      src={item.src}
-                    />
-                     </Link>
-                     <div> {item.name}</div>
-                     <div>
-                    <h5>Quantity:{item.quantity}</h5>
-                    <h5>Size:{item.size}</h5>
-                    <h5>Price:  ${item.price}</h5>
-                    </div>
+    render() {
+        return (
+            <div className="container ">
+                <div className="row">
+                    <table className="responsive-table">
+                        <thead>
+                            <tr>
+                                <th className="col s2"></th>
+                                <th className="col s2">Item Name</th>
+                                <th className="col s2">Quantity</th>
+                                <th className="col s2">Item Size</th>
+                                <th className="col s2">Item Price</th>
+                            </tr>
+                        </thead>
+                        {this.state.items ? (
+                            this.state.items.map(item => {
+                                return (
+                                    <tbody>
+                                        <tr>
+                                            <td className="col s2"> <Image key={item.id}
+                                                src={item.image}
+                                            /></td>
+                                            <td className="col s2 cartText">{item.itemName}</td>
+                                            <td className="col s2 cartText">{item.quantity}</td>
+                                            <td className="col s2 cartText">size:{item.size}</td>
+                                            <td className="col s2 cartText">${item.price}</td>
+                                        </tr>
+                                    </tbody>
+                                )
+                            })
+                        ) : (
+                                <h1>No Results to Display</h1>
+                            )}
+                    </table>
                 </div>
-              )
-            })
-          ) : (
-              <h3>No Results to Display</h3>
-            )}
-        </div>
-        <div className="row">
-        <div className="col s6">
-        <button 
-                    // onClick={props.handleFormSubmit}
-                    type="submit" 
-                    className="placeOrderbtn">Place Your Order</button>
-        </div>
-        </div>
-       
-      </div>
-      )
-  }
+                {this.state.items ? (
+                    
+                    <div className="row">
+                        <div className="col s4 push-s8">
+                            <button
+                                // onClick={props.handleFormSubmit}
+                                type="submit"
+                                className="placeOrderbtn">Check Out</button>
+                        </div>
+                    </div>
+                ) : (""
+
+                    )}
+            </div>
+        )
+    }
 }
 
 export default Cart;

@@ -17,22 +17,22 @@ class Detail extends Component {
     instance;
 
 
-    handleFormSubmit = event => {
-        event.preventDefault();
-    };
+    // handleFormSubmit = event => {
+    //     event.preventDefault();
+    // };
 
-    addToCart = (src, quantity, size, price, id) => {
-        API.saveItem(src, quantity, size, price, id)
-            .then(
-                this.setState({
-                    id: this.state.id,
-                    scr: this.state.scr,
-                    quantity: this.state.quantity,
-                    size: this.state.size,
-                    price: this.state.price,
-                })
-            ).catch(err => console.log(err));
-    };
+    // addToCart = (src, quantity, size, price, id) => {
+    //     API.saveItem(src, quantity, size, price, id)
+    //         .then(
+    //             this.setState({
+    //                 id: this.state.id,
+    //                 scr: this.state.scr,
+    //                 quantity: this.state.quantity,
+    //                 size: this.state.size,
+    //                 price: this.state.price,
+    //             })
+    //         ).catch(err => console.log(err));
+    // };
     componentDidMount() {
         API.getItem(this.props.match.params.id)
             .then(({ data }) => {
@@ -88,6 +88,7 @@ class Detail extends Component {
 
                                 // First get values that will be stored in a single item
                                 let image = this.state.item.src;
+                                let itemName = this.state.item.name;
                                 let quantity = 1;
                                 let productSize = size[0];
                                 let price = size[1];
@@ -95,6 +96,7 @@ class Detail extends Component {
 
                                 // Save item details in a JSON object
                                 let itemJson = {
+                                    "itemName": itemName,
                                     "productSize": productSize,
                                     "price": price,
                                     "image": image,

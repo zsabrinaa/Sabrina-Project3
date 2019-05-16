@@ -10,7 +10,7 @@ function Navbar(props) {
                         <a href="/" className="brand-logo logo">Sabrina</a>
                         <a href="/" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                         <ul className="right hide-on-med-and-down ">
-                            <li><a className="blackfont" href="/cart"><i class="material-icons">
+                            <li><a className="blackfont" href="/cart"><i className="material-icons">
                                 shopping_cart
                             </i></a></li>
                             <li><a className="blackfont" href="/signup">Sign Up</a></li>
