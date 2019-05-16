@@ -18,6 +18,11 @@ app.use(routes);
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/sabrina-clothing");
 
+const db = mongoose.connection;
+db.once("open",() => {
+  require("./scripts/seedDB");
+})
+
 // Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
